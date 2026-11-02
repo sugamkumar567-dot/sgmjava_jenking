@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fc">
+  <meta name="description" content="Sugam Kumar Verma is a Cloud and DevOps Engineer with 4 years of experience building reliable cloud infrastructure and delivery pipelines.">
+  <title>Sugam Kumar Verma — Cloud &amp; DevOps Engineer</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17233c;
+      --muted: #647189;
+      --bg: #f5f7fc;
+      --panel: #ffffff;
+      --line: rgba(32, 49, 82, .13);
+      --accent: #4263eb;
+      --accent-dark: #e9edff;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 82% 8%, rgba(66, 99, 235, .09), transparent 33rem),
+        radial-gradient(ellipse at 5% 48%, rgba(126, 157, 255, .06), transparent 30rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { position: fixed; z-index: 10; top: 16px; left: 16px; width: auto; height: auto; padding: 12px; border-radius: 5px; background: var(--accent); color: #fff; }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font: 11px var(--mono);
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 20px; height: 1px; background: currentColor; content: ""; }
+
+    .topbar {
+      position: sticky;
+      z-index: 5;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(245, 247, 252, .88);
+      backdrop-filter: blur(16px);
+    }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 13px; font-weight: 650; letter-spacing: -.02em; }
+    .brand-mark {
+      display: grid;
+      width: 31px;
+      height: 31px;
+      place-items: center;
+      border: 1px solid rgba(66, 99, 235, .35);
+      border-radius: 9px;
+      background: #e9edff;
+      color: var(--accent);
+      font: 12px var(--mono);
+    }
+    .nav-links { display: flex; align-items: center; gap: 31px; color: #58657b; font-size: 12px; }
+    .nav-links a { transition: color .2s ease; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-contact {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--ink);
+    }
+    .nav-contact:hover { border-color: var(--accent); }
+
+    .hero { display: grid; min-height: 620px; grid-template-columns: 1.08fr .92fr; align-items: center; gap: 42px; padding-block: 74px 92px; }
+    .hero-copy { position: relative; z-index: 1; }
+    .availability { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 27px; color: #58657b; font: 11px var(--mono); }
+    .availability i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px rgba(66, 99, 235, .4); }
+    h1 { max-width: 650px; margin: 0; font-size: clamp(48px, 7vw, 82px); line-height: .99; letter-spacing: -.075em; font-weight: 620; }
+    h1 span { color: var(--accent); }
+    .hero-lead { max-width: 490px; margin: 24px 0 0; color: #59677f; font-size: 15px; line-height: 1.8; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 23px; margin-top: 32px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 46px;
+      padding: 0 17px;
+      border: 1px solid var(--accent);
+      border-radius: 5px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(66, 99, 235, .22); }
+    .text-link { display: inline-flex; align-items: center; gap: 9px; color: #33425f; font-size: 12px; }
+    .text-link span { color: var(--accent); font-size: 16px; transition: transform .2s ease; }
+    .text-link:hover span { transform: translate(3px, -3px); }
+    .hero-meta { display: flex; gap: 28px; margin-top: 49px; color: #65728a; font: 10px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .hero-meta strong { display: block; margin-bottom: 7px; color: var(--ink); font: 600 18px var(--sans); letter-spacing: -.04em; }
+
+    .visual { position: relative; min-height: 400px; display: grid; place-items: center; }
+    .orbit {
+      position: absolute;
+      width: min(100%, 410px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(66, 99, 235, .14);
+      border-radius: 50%;
+    }
+    .orbit::before, .orbit::after { position: absolute; inset: 9%; border: 1px solid rgba(66, 99, 235, .09); border-radius: 50%; content: ""; }
+    .orbit::after { inset: 22%; }
+    .orbit-dot { position: absolute; top: 20%; right: 12%; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 18px var(--accent); }
+    .terminal {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 378px);
+      overflow: hidden;
+      border: 1px solid rgba(32, 49, 82, .16);
+      border-radius: 10px;
+      background: #141c17;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, .35);
+      transform: rotate(-2deg);
+    }
+    .terminal-bar { display: flex; align-items: center; justify-content: space-between; padding: 13px 15px; border-bottom: 1px solid var(--line); color: #8d998f; font: 10px var(--mono); }
+    .terminal-dots { display: flex; gap: 5px; }
+    .terminal-dots i { width: 7px; height: 7px; border-radius: 50%; background: #354139; }
+    .terminal-dots i:first-child { background: #c7f36b; }
+    .terminal-body { padding: 21px 20px 24px; font: 11px/2 var(--mono); }
+    .code-muted { color: #76847a; }
+    .code-key { color: #b69aff; }
+    .code-value { color: #c7f36b; }
+    .code-text { color: #d9e3da; }
+    .terminal-status { display: flex; align-items: center; gap: 8px; margin-top: 18px; padding-top: 13px; border-top: 1px solid var(--line); color: #b1bdb3; font-size: 10px; }
+    .terminal-status i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .float-tag {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 13px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: #33425f;
+      font: 10px var(--mono);
+      box-shadow: 0 9px 28px rgba(0, 0, 0, .22);
+    }
+    .float-tag svg { width: 15px; height: 15px; color: var(--accent); }
+    .float-one { top: 16%; right: -1%; }
+    .float-two { bottom: 17%; left: -1%; }
+
+    .section { padding-block: 93px; border-top: 1px solid var(--line); }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 38px; }
+    h2 { margin: 13px 0 0; font-size: clamp(30px, 4vw, 43px); font-weight: 570; line-height: 1.1; letter-spacing: -.06em; }
+    .section-intro { max-width: 350px; margin: 0 0 3px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 68px; align-items: start; }
+    .about-callout { padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(140deg, rgba(66, 99, 235, .09), transparent 70%), #fff; }
+    .about-callout .big-number { color: var(--accent); font-size: 53px; line-height: 1; letter-spacing: -.08em; }
+    .about-callout p { margin: 10px 0 0; color: #59677f; font-size: 12px; line-height: 1.7; }
+    .about-copy p { margin: 0 0 17px; color: #59677f; font-size: 14px; line-height: 1.9; }
+    .about-copy strong { color: var(--ink); font-weight: 550; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .card { position: relative; min-height: 250px; padding: 23px; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(145deg, rgba(66,99,235,.035), transparent 65%), var(--panel); box-shadow: 0 12px 30px rgba(34, 51, 91, .04); transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+    .card:hover { transform: translateY(-4px); border-color: rgba(66, 99, 235, .4); box-shadow: 0 18px 34px rgba(34, 51, 91, .09); }
+    .card-top { display: flex; align-items: center; justify-content: space-between; color: #728099; font: 10px var(--mono); }
+    .card-icon { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid rgba(66, 99, 235, .2); border-radius: 8px; background: #f0f3ff; color: var(--accent); }
+    .card-icon svg { width: 19px; height: 19px; }
+    .card h3 { margin: 29px 0 10px; font-size: 16px; font-weight: 580; letter-spacing: -.03em; }
+    .card p { max-width: 300px; margin: 0; color: #647189; font-size: 12px; line-height: 1.8; }
+    .card-label { position: absolute; bottom: 21px; left: 23px; color: var(--accent); font: 9px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+
+    .stack-panel { display: grid; grid-template-columns: .8fr 1.2fr; gap: 45px; padding: 30px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 255, 255, .84); box-shadow: 0 12px 30px rgba(34, 51, 91, .04); }
+    .stack-panel h3 { margin: 0 0 9px; font-size: 14px; font-weight: 550; }
+    .stack-panel p { margin: 0; color: #647189; font-size: 12px; line-height: 1.8; }
+    .stack-groups { display: grid; gap: 17px; }
+    .stack-group { display: grid; grid-template-columns: 105px 1fr; gap: 15px; align-items: start; }
+    .stack-group > span { padding-top: 6px; color: #728099; font: 9px var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .chip { padding: 7px 10px; border: 1px solid var(--line); border-radius: 4px; background: #f8f9fd; color: #3e4d68; font: 10px var(--mono); }
+
+    .contact-section { padding-block: 80px 72px; border-top: 1px solid var(--line); }
+    .contact-box { display: flex; align-items: center; justify-content: space-between; gap: 34px; padding: 35px 38px; border: 1px solid rgba(66, 99, 235, .19); border-radius: 9px; background: radial-gradient(ellipse at 100% 0, rgba(66, 99, 235, .12), transparent 54%), #fff; box-shadow: 0 14px 36px rgba(34, 51, 91, .06); }
+    .contact-box h2 { max-width: 530px; margin-top: 12px; font-size: clamp(28px, 4vw, 40px); }
+    .contact-box p { margin: 13px 0 0; color: #647189; font-size: 12px; line-height: 1.7; }
+    .contact-box .button { flex: 0 0 auto; }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding-block: 23px; border-top: 1px solid var(--line); color: #728099; font: 9px var(--mono); }
+    .footer-note { color: #8792a5; }
+
+    @media (max-width: 800px) {
+      .hero { min-height: auto; grid-template-columns: 1fr; gap: 16px; padding-block: 76px 45px; }
+      .hero-copy { max-width: 640px; }
+      .visual { width: min(100%, 520px); margin: 0 auto; }
+      .terminal { transform: none; }
+      .about-grid { gap: 28px; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .card:last-child { grid-column: 1 / -1; min-height: 220px; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 36px, 1120px); }
+      .nav { min-height: 64px; gap: 10px; }
+      .brand { gap: 8px; font-size: 11px; white-space: nowrap; }
+      .nav-links { gap: 0; font-size: 10px; }
+      .nav-links a:not(.nav-contact) { display: none; }
+      .nav-contact { padding: 8px 9px; white-space: nowrap; }
+      .hero { padding-top: 60px; }
+      h1 { font-size: clamp(47px, 13vw, 68px); }
+      .hero-lead { font-size: 13px; }
+      .hero-meta { gap: 18px; margin-top: 37px; }
+      .hero-meta strong { font-size: 16px; }
+      .visual { min-height: 340px; }
+      .terminal { width: calc(100% - 22px); }
+      .float-one { right: 0; }
+      .float-two { left: 0; }
+      .section { padding-block: 67px; }
+      .section-heading { display: block; margin-bottom: 27px; }
+      .section-intro { margin-top: 15px; }
+      .about-grid { grid-template-columns: 1fr; gap: 19px; }
+      .about-callout { display: flex; align-items: center; gap: 17px; }
+      .about-callout .big-number { flex: 0 0 auto; font-size: 45px; }
+      .about-callout p { margin: 0; }
+      .about-copy p { font-size: 13px; }
+      .cards { grid-template-columns: 1fr; }
+      .card, .card:last-child { grid-column: auto; min-height: 220px; }
+      .stack-panel { grid-template-columns: 1fr; gap: 25px; padding: 22px; }
+      .stack-group { grid-template-columns: 75px 1fr; gap: 10px; }
+      .contact-section { padding-block: 55px 50px; }
+      .contact-box { display: block; padding: 26px 22px; }
+      .contact-box .button { margin-top: 23px; }
+      footer { font-size: 8px; }
+    }
+    @media (max-width: 360px) {
+      .wrap { width: calc(100% - 28px); }
+      .brand-mark { width: 28px; height: 28px; }
+      .nav { gap: 7px; }
+      .nav-contact { padding-inline: 7px; }
+      .hero-meta { gap: 12px; font-size: 9px; }
+      .hero-meta strong { font-size: 14px; }
+      .float-tag { gap: 6px; padding: 8px 9px; font-size: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Sugam Kumar Verma, home">
+        <span class="brand-mark">SK</span>
+        <span>Sugam Kumar Verma</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">What I build</a>
+        <a href="#toolkit">Toolkit</a>
+        <a class="nav-contact" href="#contact">Let's connect <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="availability"><i aria-hidden="true"></i> CLOUD · DEVOPS · MULTI-CLOUD · INDIA</div>
+        <h1 id="hero-title">Building calm<br>in the <span>cloud.</span></h1>
+        <p class="hero-lead">I’m Sugam Kumar Verma, a Cloud &amp; DevOps Engineer with 4 years of experience making infrastructure more reliable, delivery more repeatable, and operations easier to trust.</p>
+        <div class="hero-actions">
+          <a class="button" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-meta" aria-label="Professional summary">
+          <div><strong>4 years</strong>of experience</div>
+          <div><strong>Multi-cloud</strong>engineering</div>
+          <div><strong>India</strong>based</div>
+        </div>
+      </div>
+      <div class="visual" aria-label="Illustration of cloud infrastructure configuration">
+        <div class="orbit" aria-hidden="true"><i class="orbit-dot"></i></div>
+        <div class="float-tag float-one">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 17.5h10a4 4 0 0 0 .4-8A6 6 0 0 0 6 8.5a4.5 4.5 0 0 0 1 9Z"/></svg>
+          Cloud native
+        </div>
+        <div class="float-tag float-two">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5m-2-12-4 14"/></svg>
+          Ship with confidence
+        </div>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span>infrastructure.tf</span><span>●</span>
+          </div>
+          <div class="terminal-body" aria-label="Example infrastructure configuration">
+            <div><span class="code-muted">01 </span><span class="code-key">infrastructure</span> {</div>
+            <div><span class="code-muted">02 </span>&nbsp;&nbsp; <span class="code-text">reliable</span> = <span class="code-value">true</span></div>
+            <div><span class="code-muted">03 </span>&nbsp;&nbsp; <span class="code-text">delivery</span> = <span class="code-value">"automated"</span></div>
+            <div><span class="code-muted">04 </span>&nbsp;&nbsp; <span class="code-text">observability</span> = <span class="code-value">"built-in"</span></div>
+            <div><span class="code-muted">05 </span>&nbsp;&nbsp; <span class="code-text">human_on_call</span> = <span class="code-value">"well-rested"</span></div>
+            <div><span class="code-muted">06 </span>}</div>
+            <div class="terminal-status"><i aria-hidden="true"></i> plan complete · ready to deploy</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><span class="eyebrow">A little about me</span><h2 id="about-title">Good systems make<br>the hard stuff feel simple.</h2></div>
+          <p class="section-intro">I bring a practical, steady approach to the infrastructure behind great products.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-callout">
+            <div class="big-number">04<span style="font-size:.48em">+</span></div>
+            <p>years working across cloud infrastructure, automation, and delivery.</p>
+          </div>
+          <div class="about-copy">
+            <p><strong>I care about what happens after deployment.</strong> Good infrastructure should be understandable, observable, and ready to recover—not just impressive on a diagram.</p>
+            <p>My focus is connecting cloud platforms, infrastructure as code, and CI/CD into workflows teams can use with confidence. I enjoy turning manual, repetitive steps into dependable automation and solving operational problems at their source.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><span class="eyebrow">Where I add value</span><h2 id="work-title">What I build.</h2></div>
+          <p class="section-intro">A few of the engineering challenges I enjoy taking from messy to manageable.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-top"><span>01 / CLOUD</span><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .4-8A6 6 0 0 0 6 9a4.5 4.5 0 0 0 1 9Z"/><path d="M9 14h6m-3-3v6"/></svg></span></div>
+            <h3>Cloud foundations</h3>
+            <p>Secure, scalable infrastructure shaped around reliability, sensible access, and the needs of the teams running it.</p>
+            <span class="card-label">Design · Provision · Improve</span>
+          </article>
+          <article class="card">
+            <div class="card-top"><span>02 / DELIVERY</span><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="m8 10 2 2-2 2m4 0h4"/></svg></span></div>
+            <h3>CI/CD &amp; automation</h3>
+            <p>Repeatable build and release workflows that reduce manual effort and help teams ship changes with confidence.</p>
+            <span class="card-label">Build · Test · Release</span>
+          </article>
+          <article class="card">
+            <div class="card-top"><span>03 / OPERATIONS</span><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/><path d="M4 4h.01M20 20h.01"/></svg></span></div>
+            <h3>Observability &amp; resilience</h3>
+            <p>Useful signals, clear operational visibility, and thoughtful recovery practices for systems in production.</p>
+            <span class="card-label">Measure · Learn · Recover</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="toolkit" aria-labelledby="toolkit-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><span class="eyebrow">My focus</span><h2 id="toolkit-title">How I work.</h2></div>
+          <p class="section-intro">Core areas I work across as a Cloud &amp; DevOps Engineer.</p>
+        </div>
+        <div class="stack-panel">
+          <div>
+            <h3>Reliable systems, repeatable delivery.</h3>
+            <p>I focus on cloud infrastructure and delivery practices that make services easier to operate and improve.</p>
+          </div>
+          <div class="stack-groups">
+            <div class="stack-group"><span>Cloud</span><div class="chips"><span class="chip">Multi-cloud</span><span class="chip">Cloud infrastructure</span></div></div>
+            <div class="stack-group"><span>Delivery</span><div class="chips"><span class="chip">CI/CD</span><span class="chip">Release workflows</span></div></div>
+            <div class="stack-group"><span>Automation</span><div class="chips"><span class="chip">Infrastructure automation</span><span class="chip">Infrastructure as code</span></div></div>
+            <div class="stack-group"><span>Operations</span><div class="chips"><span class="chip">Monitoring</span><span class="chip">Reliability</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact-box">
+          <div>
+            <span class="eyebrow">Have a challenge in mind?</span>
+            <h2 id="contact-title">Let’s make your infrastructure work better.</h2>
+            <p>Based in India · Interested in a Cloud or DevOps opportunity?<br><a href="mailto:sugam@gmail.com">sugam@gmail.com</a></p>
+          </div>
+          <a class="button" href="mailto:sugam@gmail.com">Email me <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">
+    <span>© <span id="year">2026</span> Sugam Kumar Verma</span>
+    <span class="footer-note">Built with care · Deployed with confidence</span>
+  </footer>
+</body>
+</html>
