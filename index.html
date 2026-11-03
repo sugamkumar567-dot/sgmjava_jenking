@@ -161,6 +161,21 @@
     .float-one { top: 16%; right: -1%; }
     .float-two { bottom: 17%; left: -1%; }
 
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font: 10px var(--mono);
+      cursor: pointer;
+    }
+    .theme-toggle:hover { border-color: var(--accent); }
+    .theme-toggle svg { width: 15px; height: 15px; color: var(--accent); }
+
     .section { padding-block: 93px; border-top: 1px solid var(--line); }
     .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 38px; }
     h2 { margin: 13px 0 0; font-size: clamp(30px, 4vw, 43px); font-weight: 570; line-height: 1.1; letter-spacing: -.06em; }
@@ -199,6 +214,40 @@
     footer { display: flex; justify-content: space-between; gap: 20px; padding-block: 23px; border-top: 1px solid var(--line); color: #728099; font: 9px var(--mono); }
     .footer-note { color: #8792a5; }
 
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --ink: #e8edf8;
+      --muted: #a5b2c8;
+      --bg: #0c1220;
+      --panel: #151d2f;
+      --line: rgba(197, 210, 239, .16);
+      --accent: #90a4ff;
+      --accent-dark: #252f50;
+    }
+    :root[data-theme="dark"] .topbar { background: rgba(12, 18, 32, .9); }
+    :root[data-theme="dark"] .nav-links,
+    :root[data-theme="dark"] .availability,
+    :root[data-theme="dark"] .hero-meta,
+    :root[data-theme="dark"] .about-callout p,
+    :root[data-theme="dark"] .about-copy p,
+    :root[data-theme="dark"] .card p,
+    :root[data-theme="dark"] .stack-panel p,
+    :root[data-theme="dark"] .contact-box p { color: #b6c1d5; }
+    :root[data-theme="dark"] .nav-contact,
+    :root[data-theme="dark"] .text-link { color: var(--ink); }
+    :root[data-theme="dark"] .hero-lead,
+    :root[data-theme="dark"] .section-intro { color: var(--muted); }
+    :root[data-theme="dark"] .float-tag,
+    :root[data-theme="dark"] .about-callout,
+    :root[data-theme="dark"] .contact-box { background-color: var(--panel); color: var(--ink); }
+    :root[data-theme="dark"] .about-callout { background-image: linear-gradient(140deg, rgba(144, 164, 255, .12), transparent 70%); }
+    :root[data-theme="dark"] .card { background-image: linear-gradient(145deg, rgba(144, 164, 255, .08), transparent 65%); }
+    :root[data-theme="dark"] .card-icon { background: #222d49; }
+    :root[data-theme="dark"] .stack-panel { background: rgba(21, 29, 47, .9); }
+    :root[data-theme="dark"] .chip { background: #1d2840; color: #d3dcf0; }
+    :root[data-theme="dark"] .footer-note { color: #a5b2c8; }
+    :root[data-theme="dark"] .contact-box a:not(.button) { color: var(--accent); }
+
     @media (max-width: 800px) {
       .hero { min-height: auto; grid-template-columns: 1fr; gap: 16px; padding-block: 76px 45px; }
       .hero-copy { max-width: 640px; }
@@ -212,9 +261,11 @@
       .wrap { width: min(100% - 36px, 1120px); }
       .nav { min-height: 64px; gap: 10px; }
       .brand { gap: 8px; font-size: 11px; white-space: nowrap; }
-      .nav-links { gap: 0; font-size: 10px; }
+      .nav-links { gap: 7px; font-size: 10px; }
       .nav-links a:not(.nav-contact) { display: none; }
       .nav-contact { padding: 8px 9px; white-space: nowrap; }
+      .theme-toggle { padding: 8px; }
+      .theme-toggle span { display: none; }
       .hero { padding-top: 60px; }
       h1 { font-size: clamp(47px, 13vw, 68px); }
       .hero-lead { font-size: 13px; }
@@ -267,6 +318,10 @@
         <a href="#about">About</a>
         <a href="#work">What I build</a>
         <a href="#toolkit">Toolkit</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+          <span>Dark</span>
+        </button>
         <a class="nav-contact" href="#contact">Let's connect <span aria-hidden="true">↗</span></a>
       </div>
     </nav>
@@ -391,7 +446,7 @@
           <div>
             <span class="eyebrow">Have a challenge in mind?</span>
             <h2 id="contact-title">Let’s make your infrastructure work better.</h2>
-            <p>Based in India · Interested in a Cloud or DevOps opportunity?<br><a href="mailto:sugam@gmail.com">sugam@gmail.com</a></p>
+            <p>Based in India · Interested in a Cloud or DevOps opportunity?<br><a href="mailto:sugam@gmail.com">sugam@gmail.com</a> · <a href="https://github.com/sugamkumar567-dot" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a></p>
           </div>
           <a class="button" href="mailto:sugam@gmail.com">Email me <span aria-hidden="true">↗</span></a>
         </div>
@@ -402,5 +457,23 @@
     <span>© <span id="year">2026</span> Sugam Kumar Verma</span>
     <span class="footer-note">Built with care · Deployed with confidence</span>
   </footer>
+  <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeLabel = themeToggle.querySelector("span");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    function setTheme(theme) {
+      const isDark = theme === "dark";
+      document.documentElement.dataset.theme = theme;
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeToggle.setAttribute("aria-label", `Switch to ${isDark ? "light" : "dark"} theme`);
+      themeLabel.textContent = isDark ? "Light" : "Dark";
+    }
+
+    setTheme(prefersDark ? "dark" : "light");
+    themeToggle.addEventListener("click", () => {
+      setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+    });
+  </script>
 </body>
 </html>
